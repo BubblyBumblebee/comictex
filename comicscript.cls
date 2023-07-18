@@ -29,6 +29,10 @@
 \RequirePackage{tabularx}
 \RequirePackage{fmtcount}
 \RequirePackage{xcolor}
+\usepackage{hyphenat}
+\usepackage{microtype}
+
+\DisableLigatures[-]{}
 
 % Commands and settings -------------------------------------------------------
 % Handle mutually exclusive options
@@ -112,6 +116,6 @@
   \stepcounter{letteringitem}
   \arabic{letteringitem}. & \MakeUppercase{#1}\IfNoValueTF{#2}{}{ (\MakeUppercase{#2})}: & #3 \\
 }
-\NewDocumentCommand{\dialogue}{ m o m }{\letteringitem{#1}[#2]{#3}}
-\NewDocumentCommand{\narration}{ o m }{\letteringitem{NARRATION}[#1]{#2}}
-\NewDocumentCommand{\sfx}{ m }{\letteringitem{SFX}{#1}}
+\NewDocumentCommand{\dialogue}{ m o m }{\letteringitem{#1}[#2]{\nohyphens{#3}}}
+\NewDocumentCommand{\narration}{ o m }{\letteringitem{NARRATION}[#1]{\nohyphens{#2}}}
+\NewDocumentCommand{\sfx}{ m }{\letteringitem{SFX}{\nohyphens{#1}}}
